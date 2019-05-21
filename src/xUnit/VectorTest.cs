@@ -38,5 +38,18 @@ namespace codeclimber.raytracer.xUnit
             Assert.False(ab);
             Assert.False(ba);
         }
+
+        [Fact]
+        public void CanComputeCROSSProduct()
+        {
+            //Given
+            var a = new Vector(1, 2, 3);
+            var b = new Vector(2, 3, 4);
+            //When
+
+            //Then
+            Assert.Equal(new Vector(-1, 2, -1), a.Cross(b));
+            Assert.Equal(new Vector(1, -2, 1), b.Cross(a));
+        }
     }
 }

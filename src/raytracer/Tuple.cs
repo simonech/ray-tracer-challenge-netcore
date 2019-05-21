@@ -95,6 +95,15 @@ namespace codeclimber.raytracer
             return this.Divide(m);
         }
 
+        public double Dot(Tuple other)
+        {
+            return 
+                this.X * other.X +
+                this.Y * other.Y +
+                this.Z * other.Z +
+                this.W * other.W;
+        }
+
         public override bool Equals(object obj)
         {
             Tuple t = obj as Tuple;

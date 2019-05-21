@@ -233,37 +233,73 @@ namespace codeclimber.raytracer.xUnit
         [Fact]
         public void CanNormalizeUnidimensionalVector()
         {
-        //Given
+            //Given
             var value = new Vector(4, 0, 0);
             var expectedResult = new Vector(1, 0, 0);
-        //When
-        
-        //Then
-            Assert.Equal(expectedResult,value.Normalize());
+            //When
+
+            //Then
+            Assert.Equal(expectedResult, value.Normalize());
         }
 
         [Fact]
         public void CanNormalize3DVector()
         {
-        //Given
+            //Given
             var value = new Vector(1, 2, 3);
             var sq = s.Math.Sqrt(14);
-            var expectedResult = new Vector(1/sq, 2/sq, 3/sq);
-        //When
-        
-        //Then
-            Assert.Equal(expectedResult,value.Normalize());
+            var expectedResult = new Vector(1 / sq, 2 / sq, 3 / sq);
+            //When
+
+            //Then
+            Assert.Equal(expectedResult, value.Normalize());
         }
 
         [Fact]
         public void MagnituteOfNormalizedVectorIs1()
         {
-        //Given
+            //Given
             var value = new Vector(1, 2, 3);
-        //When
+            //When
             var norm = value.Normalize();
-        //Then
-            Assert.Equal(1,norm.Magnitude());
+            //Then
+            Assert.Equal(1, norm.Magnitude());
+        }
+
+        [Fact]
+        public void CanComputeDOTProduct()
+        {
+            //Given
+            var a = new Vector(1, 2, 3);
+            var b = new Vector(2, 3, 4);
+            //When
+
+            //Then
+            Assert.Equal(20, a.Dot(b));
+        }
+
+        [Fact]
+        public void IdenticalUnitVectorsHaveDotProductEqualTo1()
+        {
+            //Given
+            var a = new Vector(1, 0, 0);
+            var b = new Vector(1, 0, 0);
+            //When
+
+            //Then
+            Assert.Equal(1, a.Dot(b));
+        }
+
+        [Fact]
+        public void OppositelUnitVectorsHaveDotProductEqualTo1()
+        {
+            //Given
+            var a = new Vector(1, 0, 0);
+            var b = new Vector(-1, 0, 0);
+            //When
+
+            //Then
+            Assert.Equal(-1, a.Dot(b));
         }
     }
 }

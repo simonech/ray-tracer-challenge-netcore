@@ -38,3 +38,4 @@ To look at how the main library and test suite evolved through the book, each ch
 
  * Chapter 0.1 - Just a script that uses the `dotnet` CLI to create the project structure and makes sure everything is working fine.
  * Chapter 0.2 - The basic projects (lib and xUnit test lib) with simple code to make sure testing works fine.
+ * Chapter 1.1 - 

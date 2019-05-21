@@ -229,5 +229,41 @@ namespace codeclimber.raytracer.xUnit
             //Then
             Assert.Equal(expectedResult, value.Magnitude());
         }
+
+        [Fact]
+        public void CanNormalizeUnidimensionalVector()
+        {
+        //Given
+            var value = new Vector(4, 0, 0);
+            var expectedResult = new Vector(1, 0, 0);
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,value.Normalize());
+        }
+
+        [Fact]
+        public void CanNormalize3DVector()
+        {
+        //Given
+            var value = new Vector(1, 2, 3);
+            var sq = s.Math.Sqrt(14);
+            var expectedResult = new Vector(1/sq, 2/sq, 3/sq);
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,value.Normalize());
+        }
+
+        [Fact]
+        public void MagnituteOfNormalizedVectorIs1()
+        {
+        //Given
+            var value = new Vector(1, 2, 3);
+        //When
+            var norm = value.Normalize();
+        //Then
+            Assert.Equal(1,norm.Magnitude());
+        }
     }
 }

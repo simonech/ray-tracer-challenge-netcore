@@ -89,6 +89,12 @@ namespace codeclimber.raytracer
             return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2) + Math.Pow(W, 2));
         }
 
+        public Tuple Normalize()
+        {
+            var m = this.Magnitude();
+            return this.Divide(m);
+        }
+
         public override bool Equals(object obj)
         {
             Tuple t = obj as Tuple;

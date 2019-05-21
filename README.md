@@ -35,20 +35,3 @@ Specifically, things I hope to learn better are:
 This `master` branch contains the latest state of the ray tracer library and tests. Additionally, some chapters have some self-contained applications, so there will be some additional projects as well.
 
 To look at how the main library and test suite evolved through the book, each chapter has a branch, sometimes multiple when it makes sense. It starts with Chapter 0, which is the preparation of environment.
-
-
-## Creating the structure
-
-```
-dotnet new sln -o ray-tracer-challenge
-cd ray-tracer-challenge
-dotnet new classlib -o raytracer -n codeclimber.raytracer
-dotnet new xunit -o xUnit -n codeclimber.raytracer.xUnit
-dotnet sln add **/*.csproj || dotnet sln add raytracer/codeclimber.raytracer.csproj xUnit/codeclimber.raytracer.xUnit.csproj
-cd xUnit/
-dotnet add reference ../lib/codeclimber.raytracer.csproj 
-cd ..
-dotnet build
-dotnet test
-```
-

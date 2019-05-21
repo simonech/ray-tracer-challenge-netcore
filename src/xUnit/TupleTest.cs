@@ -1,6 +1,7 @@
 namespace codeclimber.raytracer.xUnit
 {
     using Xunit;
+    using s = System;
 
     public class TupleTest
     {
@@ -187,7 +188,7 @@ namespace codeclimber.raytracer.xUnit
         {
         //Given
             var t = new Tuple(1,-2,3,-4);
-            var expectedResult = new Tuple(0.5f,-1,1.5f,-2);
+            var expectedResult = new Tuple(0.5,-1,1.5,-2);
         //When
         
         //Then
@@ -195,5 +196,38 @@ namespace codeclimber.raytracer.xUnit
             Assert.Equal(expectedResult, result);
         }
 
+        [Theory]
+        [InlineData(1,0,0,1)]
+        [InlineData(0,1,0,1)]
+        [InlineData(0,0,1,1)]
+        public void CanComputeMagnitudeUnitVector(double x, double y, double z, double magnitude)
+        {
+            var value = new Vector(x,y,z);
+            Assert.Equal(magnitude,value.Magnitude());
+        }
+
+        [Fact]
+        public void CanComputeMagnitudeVector123()
+        {
+        //Given
+            var value = new Vector(1,2,3);
+            var expectedResult = s.Math.Sqrt(14);
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,value.Magnitude());
+        }
+
+        [Fact]
+        public void CanComputeMagnitudeVectorNeg123()
+        {
+        //Given
+            var value = new Vector(-1,-2,-3);
+            var expectedResult = s.Math.Sqrt(14);
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,value.Magnitude());
+        }
     }
 }

@@ -1,8 +1,10 @@
 namespace codeclimber.raytracer
 {
+    using System;
+
     public class Tuple
     {
-        public Tuple(float x, float y, float z, float w)
+        public Tuple(double x, double y, double z, double w)
         {
             X=x;
             Y=y;
@@ -24,10 +26,10 @@ namespace codeclimber.raytracer
         }
         
 
-        public float X { get; set; }
-        public float Y { get; set; }
-        public float Z { get; set; }
-        public float W { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Z { get; set; }
+        public double W { get; set; }
 
         public Tuple Add (Tuple other)
         {
@@ -59,7 +61,7 @@ namespace codeclimber.raytracer
             );
         }
 
-        public Tuple Multiply(float multiplier)
+        public Tuple Multiply(double multiplier)
         {
             return new Tuple(
                 X*multiplier,
@@ -69,7 +71,7 @@ namespace codeclimber.raytracer
             );
         }
 
-        public Tuple Divide(float divisor)
+        public Tuple Divide(double divisor)
         {
             return new Tuple(
                 X/divisor,
@@ -77,6 +79,11 @@ namespace codeclimber.raytracer
                 Z/divisor,
                 W/divisor
             );
+        }
+
+        public double Magnitude()
+        {
+            return Math.Sqrt(Math.Pow(X,2)+Math.Pow(Y,2)+Math.Pow(Z,2)+Math.Pow(W,2));
         }
 
         public override bool Equals(object obj)

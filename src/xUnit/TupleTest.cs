@@ -155,5 +155,45 @@ namespace codeclimber.raytracer.xUnit
             var result = t.Negate();
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void CanMultiplyTimesScalarTuple()
+        {
+        //Given
+            var t = new Tuple(1,-2,3,-4);
+            var expectedResult = new Tuple(3.5f,-7,10.5f,-14);
+        //When
+        
+        //Then
+            var result = t.Multiply(3.5f);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void CanMultiplyTimesFractionTuple()
+        {
+        //Given
+            var t = new Tuple(1,-2,3,-4);
+            var expectedResult = new Tuple(0.5f,-1,1.5f,-2);
+        //When
+        
+        //Then
+            var result = t.Multiply(0.5f);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void CanDivideTuple()
+        {
+        //Given
+            var t = new Tuple(1,-2,3,-4);
+            var expectedResult = new Tuple(0.5f,-1,1.5f,-2);
+        //When
+        
+        //Then
+            var result = t.Divide(2);
+            Assert.Equal(expectedResult, result);
+        }
+
     }
 }

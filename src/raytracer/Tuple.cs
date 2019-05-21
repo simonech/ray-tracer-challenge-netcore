@@ -59,6 +59,26 @@ namespace codeclimber.raytracer
             );
         }
 
+        public Tuple Multiply(float multiplier)
+        {
+            return new Tuple(
+                X*multiplier,
+                Y*multiplier,
+                Z*multiplier,
+                W*multiplier
+            );
+        }
+
+        public Tuple Divide(float divisor)
+        {
+            return new Tuple(
+                X/divisor,
+                Y/divisor,
+                Z/divisor,
+                W/divisor
+            );
+        }
+
         public override bool Equals(object obj)
         {
             Tuple t = obj as Tuple;

@@ -6,48 +6,51 @@ namespace codeclimber.raytracer
     {
         public Tuple(double x, double y, double z, double w)
         {
-            X=x;
-            Y=y;
-            Z=z;
-            W=w;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
-        
+
         public TupleType Type
         {
-            get { 
-                if(W==1.0f){
+            get
+            {
+                if (W == 1.0f)
+                {
                     return TupleType.Point;
                 }
-                if(W==0.0f){
+                if (W == 0.0f)
+                {
                     return TupleType.Vector;
                 }
                 return TupleType.Undefined;
             }
         }
-        
+
 
         public double X { get; set; }
         public double Y { get; set; }
         public double Z { get; set; }
         public double W { get; set; }
 
-        public Tuple Add (Tuple other)
+        public Tuple Add(Tuple other)
         {
             return new Tuple(
-                X+other.X,
-                Y+other.Y,
-                Z+other.Z,
-                W+other.W
+                X + other.X,
+                Y + other.Y,
+                Z + other.Z,
+                W + other.W
             );
         }
 
-        public Tuple Subtract (Tuple other)
+        public Tuple Subtract(Tuple other)
         {
             return new Tuple(
-                X-other.X,
-                Y-other.Y,
-                Z-other.Z,
-                W-other.W
+                X - other.X,
+                Y - other.Y,
+                Z - other.Z,
+                W - other.W
             );
         }
 
@@ -64,33 +67,33 @@ namespace codeclimber.raytracer
         public Tuple Multiply(double multiplier)
         {
             return new Tuple(
-                X*multiplier,
-                Y*multiplier,
-                Z*multiplier,
-                W*multiplier
+                X * multiplier,
+                Y * multiplier,
+                Z * multiplier,
+                W * multiplier
             );
         }
 
         public Tuple Divide(double divisor)
         {
             return new Tuple(
-                X/divisor,
-                Y/divisor,
-                Z/divisor,
-                W/divisor
+                X / divisor,
+                Y / divisor,
+                Z / divisor,
+                W / divisor
             );
         }
 
         public double Magnitude()
         {
-            return Math.Sqrt(Math.Pow(X,2)+Math.Pow(Y,2)+Math.Pow(Z,2)+Math.Pow(W,2));
+            return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2) + Math.Pow(Z, 2) + Math.Pow(W, 2));
         }
 
         public override bool Equals(object obj)
         {
             Tuple t = obj as Tuple;
             Tuple self = this as Tuple;
-            if(t == null || self == null )
+            if (t == null || self == null)
             {
                 return false;
             }

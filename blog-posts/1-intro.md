@@ -46,6 +46,7 @@ The repository will also include the posts of the series. To familiarize yoursel
 
 I'll try to write a post at least once per chapter of the book, and document how things are going, the challenges I faced and what I learend. I will update this table of content with every post published
 
- * [The Ray Tracer Challenge... in .NET Core - Introduction]()
+ * The Ray Tracer Challenge... in .NET Core - Introduction (this post)
+ * [The Ray Tracer Challenge - Setting up the project]()
 
 I hope you will subscribe to my blog (if you don't have already) and will learn together with my how implementing ray tracing in .NET Core.

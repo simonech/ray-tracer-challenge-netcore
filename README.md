@@ -44,7 +44,7 @@ This `master` branch contains the latest state of the ray tracer library and tes
 
 To look at how the main library and test suite evolved through the book, each chapter has a branch, sometimes multiple when it makes sense. It starts with Chapter 0, which is the preparation of environment.
 
- * Chapter 0.1 - Just a script that uses the `dotnet` CLI to create the project structure and makes sure everything is working fine.
- * Chapter 0.2 - The basic projects (lib and xUnit test lib) with simple code to make sure testing works fine.
- * Chapter 1.1 - Implemented basic arithmetics of Tuple, Vectors and Points (Equality, Sum, Subtraction, Negative).
- * Chapter 1.2 - Implemented vector-specific operations, like Normalization, Magnitude, Dot and Cross Product.
+ * [Chapter 0.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-0.1) - Just a script that uses the `dotnet` CLI to create the project structure and makes sure everything is working fine.
+ * [Chapter 0.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-0.2) - The basic projects (lib and xUnit test lib) with simple code to make sure testing works fine.
+ * [Chapter 1.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.1) - Implemented basic arithmetics of Tuple, Vectors and Points (Equality, Sum, Subtraction, Negative).
+ * [Chapter 1.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.2) - Implemented vector-specific operations, like Normalization, Magnitude, Dot and Cross Product.

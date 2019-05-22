@@ -77,6 +77,20 @@ namespace codeclimber.raytracer.xUnit
         }
 
         [Fact]
+        public void AddingVectorToPointGivesAPoint()
+        {
+            //Given
+            var p = new Point(3, 2, 1);
+            var v = new Vector(5, 6, 7);
+            var expectedResult = new Point(8, 8, 8);
+            //When
+
+            //Then
+            var result = p.Add(v);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
         public void SubtractingPointsGivesAVector()
         {
             //Given

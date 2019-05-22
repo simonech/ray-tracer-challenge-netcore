@@ -34,6 +34,14 @@ Specifically, things I hope to learn better are:
 
 This `master` branch contains the latest state of the ray tracer library and tests. Additionally, some chapters have some self-contained applications, so there will be some additional projects as well.
 
+ * `Exercises`: Contains the implementation of the "Putting It Together" section at the end of each chapter
+   * `Chapter1`: Basic physics exercise of lauching a bullet at a given angle with gravity and wind.
+ * `src`: Implementation of the raytracer library and the tests.
+ * `blog-posts`: I'm documenting my learning process on my blog, and the posts are stored here.
+
+
+## Evolution of the library
+
 To look at how the main library and test suite evolved through the book, each chapter has a branch, sometimes multiple when it makes sense. It starts with Chapter 0, which is the preparation of environment.
 
  * Chapter 0.1 - Just a script that uses the `dotnet` CLI to create the project structure and makes sure everything is working fine.

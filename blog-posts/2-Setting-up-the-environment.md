@@ -72,6 +72,11 @@ dotnet test
 
 This list of commands creates a solution inside a folder called `src` and the 2 projects in their own sub-folders. Then they add them to the solution, add to the testing project a reference to the class library, and finally, build and run the tests.
 
+You can see the code at this point in time by going on the Github repo of this project and switching to the two branches:
+
+ * [Chapter 0.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-0.1) - Just a script that uses the `dotnet` CLI to create the project structure and makes sure everything is working fine.
+ * [Chapter 0.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-0.2) - The basic projects (lib and xUnit test lib) with simple code to make sure testing works fine.
+
 ## Conclusion
 
 Now that the environment is setup correctly, in the next post I'll start implementing the exercises of the first chapter of the book [The Ray Tracer Challenge - A Test-Driven Guide to Your First 3D Renderer](https://amzn.to/2Elaxkr). 

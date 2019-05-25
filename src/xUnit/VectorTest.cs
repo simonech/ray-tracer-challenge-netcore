@@ -7,17 +7,17 @@ namespace codeclimber.raytracer.xUnit
         [Fact]
         public void VectorIsTupleWithW0()
         {
-            var v = new Vector(4f, -4f, 3f);
-            var t = new Tuple(4f, -4f, 3f, 0);
-            Assert.Equal(t, v);
-            Assert.Equal(v, t);
+            var v = new Vector(4, -4, 3);
+            var t = new Tuple(4, -4, 3, 0);
+            Assert.Equal(t, v.InnerValue);
+            Assert.Equal(v.InnerValue, t);
         }
 
         [Fact]
         public void EqualityOperatorReturnsTrueWhenEqual()
         {
-            var a = new Vector(4.3f, -4.2f, 3.1f);
-            var b = new Vector(4.3f, -4.2f, 3.1f);
+            var a = new Vector(4.3, -4.2, 3.1);
+            var b = new Vector(4.3, -4.2, 3.1);
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -29,8 +29,8 @@ namespace codeclimber.raytracer.xUnit
         [Fact]
         public void EqualityOperatorReturnsFalseWhenNotEqual()
         {
-            var a = new Vector(4.3f, -4.1f, 3.1f);
-            var b = new Vector(4.3f, -4.2f, 3.1f);
+            var a = new Vector(4.3, -4.1, 3.1);
+            var b = new Vector(4.3, -4.2, 3.1);
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -48,8 +48,25 @@ namespace codeclimber.raytracer.xUnit
             //When
 
             //Then
-            Assert.Equal(new Vector(-1, 2, -1), a.Cross(b));
-            Assert.Equal(new Vector(1, -2, 1), b.Cross(a));
+            var v1=a.Cross(b);
+            var v2=b.Cross(a);
+            Assert.Equal(new Vector(-1, 2, -1), v1);
+            Assert.Equal(new Vector(1, -2, 1), v2);
+            Assert.True(v1.InnerValue.IsVector);
+            Assert.True(v2.InnerValue.IsVector);
         }
+
+        [Fact]
+        public void CanWriteToString()
+        {
+        //Given
+            var v = new Vector(4.3, -4.1, 3.1);
+            var expectedResult = "[4.3, -4.1, 3.1],(0)";
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,v.ToString());
+        }
+
     }
 }

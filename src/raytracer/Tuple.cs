@@ -12,21 +12,8 @@ namespace codeclimber.raytracer
             W = w;
         }
 
-        public TupleType Type
-        {
-            get
-            {
-                if (W == 1.0f)
-                {
-                    return TupleType.Point;
-                }
-                if (W == 0.0f)
-                {
-                    return TupleType.Vector;
-                }
-                return TupleType.Undefined;
-            }
-        }
+        public bool IsPoint { get => W==1;  }
+        public bool IsVector { get => W==0;  }
 
 
         public double X { get; set; }
@@ -104,6 +91,16 @@ namespace codeclimber.raytracer
                 this.W * other.W;
         }
 
+        public Tuple Cross(Tuple v)
+        {
+            return new Tuple(
+                this.Y * v.Z - this.Z * v.Y,
+                this.Z * v.X - this.X * v.Z,
+                this.X * v.Y - this.Y * v.X,
+                0
+            );
+        }
+
         public override bool Equals(object obj)
         {
             Tuple t = obj as Tuple;
@@ -120,12 +117,11 @@ namespace codeclimber.raytracer
                     && t.W.Equals(self.W));
             }
         }
-    }
 
-    public enum TupleType
-    {
-        Undefined,
-        Vector,
-        Point
+        public override string ToString()
+        {
+            return $"[{X}, {Y}, {Z}],({W})";
+        }
+
     }
 }

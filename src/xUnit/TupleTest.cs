@@ -9,38 +9,38 @@ namespace codeclimber.raytracer.xUnit
         public void TupleWithW1IsAPoint()
         {
             //Given
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 1.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 1);
             //When
 
             //Then
-            Assert.Equal(4.3f, a.X);
-            Assert.Equal(-4.2f, a.Y);
-            Assert.Equal(3.1f, a.Z);
-            Assert.Equal(1.0f, a.W);
-            Assert.Equal(TupleType.Point, a.Type);
-            Assert.NotEqual(TupleType.Vector, a.Type);
+            Assert.Equal(4.3, a.X);
+            Assert.Equal(-4.2, a.Y);
+            Assert.Equal(3.1, a.Z);
+            Assert.Equal(1, a.W);
+            Assert.True(a.IsPoint);
+            Assert.False(a.IsVector);
         }
         [Fact]
         public void TupleWithW0IsAVector()
         {
             //Given
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 0);
             //When
 
             //Then
-            Assert.Equal(4.3f, a.X);
-            Assert.Equal(-4.2f, a.Y);
-            Assert.Equal(3.1f, a.Z);
-            Assert.Equal(0.0f, a.W);
-            Assert.NotEqual(TupleType.Point, a.Type);
-            Assert.Equal(TupleType.Vector, a.Type);
+            Assert.Equal(4.3, a.X);
+            Assert.Equal(-4.2, a.Y);
+            Assert.Equal(3.1, a.Z);
+            Assert.Equal(0, a.W);
+            Assert.False(a.IsPoint);
+            Assert.True(a.IsVector);
         }
 
         [Fact]
         public void EqualityOperatorReturnsTrueWhenEqual()
         {
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
-            var b = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 0);
+            var b = new Tuple(4.3, -4.2, 3.1, 0);
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -52,8 +52,8 @@ namespace codeclimber.raytracer.xUnit
         [Fact]
         public void EqualityOperatorReturnsFalseWhenNotEqual()
         {
-            var a = new Tuple(4.3f, -4.1f, 3.1f, 0.0f);
-            var b = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.1, 3.1, 0);
+            var b = new Tuple(4.3, -4.2, 3.1, 0);
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -88,10 +88,11 @@ namespace codeclimber.raytracer.xUnit
             //Then
             var result = p.Add(v);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.InnerValue.IsPoint);
         }
 
         [Fact]
-        public void SubtractingPointsGivesAVector()
+        public void SubtractingTwoPointsGivesAVector()
         {
             //Given
             var a1 = new Point(3, 2, 1);
@@ -102,6 +103,7 @@ namespace codeclimber.raytracer.xUnit
             //Then
             var result = a1.Subtract(a2);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.InnerValue.IsVector);
         }
 
         [Fact]
@@ -116,6 +118,7 @@ namespace codeclimber.raytracer.xUnit
             //Then
             var result = p.Subtract(v);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.InnerValue.IsPoint);
         }
 
         [Fact]
@@ -130,6 +133,7 @@ namespace codeclimber.raytracer.xUnit
             //Then
             var result = p.Subtract(v);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.InnerValue.IsVector);
         }
 
         [Fact]
@@ -141,7 +145,7 @@ namespace codeclimber.raytracer.xUnit
             //When
 
             //Then
-            Assert.Equal(zeroTuple, zero);
+            Assert.Equal(zeroTuple, zero.InnerValue);
         }
 
         [Fact]
@@ -176,7 +180,7 @@ namespace codeclimber.raytracer.xUnit
         {
             //Given
             var t = new Tuple(1, -2, 3, -4);
-            var expectedResult = new Tuple(3.5f, -7, 10.5f, -14);
+            var expectedResult = new Tuple(3.5, -7, 10.5, -14);
             //When
 
             //Then
@@ -189,7 +193,7 @@ namespace codeclimber.raytracer.xUnit
         {
             //Given
             var t = new Tuple(1, -2, 3, -4);
-            var expectedResult = new Tuple(0.5f, -1, 1.5f, -2);
+            var expectedResult = new Tuple(0.5, -1, 1.5, -2);
             //When
 
             //Then
@@ -314,6 +318,18 @@ namespace codeclimber.raytracer.xUnit
 
             //Then
             Assert.Equal(-1, a.Dot(b));
+        }
+
+        [Fact]
+        public void CanWriteToString()
+        {
+        //Given
+            var t = new Tuple(4.3, -4.1, 3.1, 0);
+            var expectedResult = "[4.3, -4.1, 3.1],(0)";
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,t.ToString());
         }
     }
 }

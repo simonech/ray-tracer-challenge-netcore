@@ -1,6 +1,6 @@
 # The Ray Tracer Challenge... in .NET Core
 
-This repo holds the code for a ray tracer following this book: [The Ray Tracer Challenge - A Test-Driven Guide to Your First 3D Renderer](http://www.raytracerchallenge.com/).
+This repo holds the code for a ray tracer following this book: [The Ray Tracer Challenge - A Test-Driven Guide to Your First 3D Renderer](https://amzn.to/2Elaxkr).
 
 I'm blogging my adventures implementing this ray tracer on my blog: [codeclimber.net.nz](https://codeclimber.net.nz).
 

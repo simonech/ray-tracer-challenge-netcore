@@ -28,16 +28,18 @@ Specifically, things I hope to learn better are:
  * a more advanced usa of VS Code (now I mostly use it "just" as text editor);
  * New features of C# (with new I mean from v6 onwards);
  * xUnit;
- * BDD with Gherkin and SpecFlow.
+ * BDD with Gherkin and SpecFlow;
+ * performance testing once everything is done.
 
 ## Repository structure
 
 This `master` branch contains the latest state of the ray tracer library and tests. Additionally, some chapters have some self-contained applications, so there will be some additional projects as well.
 
- * `Exercises`: Contains the implementation of the "Putting It Together" section at the end of each chapter
+ * `Exercises`: Contains the implementation of the "Putting It Together" section at the end of each chapter.
    * `Chapter1`: Basic physics exercise of lauching a bullet at a given angle with gravity and wind.
  * `src`: Implementation of the raytracer library and the tests.
  * `blog-posts`: I'm documenting my learning process on my blog, and the posts are stored here.
+ * `resources` : Collection of other material useful for the projects, like links I found useful, articles or anything else really.
 
 
 ## Evolution of the library

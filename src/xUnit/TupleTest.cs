@@ -9,38 +9,43 @@ namespace codeclimber.raytracer.xUnit
         public void TupleWithW1IsAPoint()
         {
             //Given
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 1.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 1);
+
             //When
 
             //Then
-            Assert.Equal(4.3f, a.X);
-            Assert.Equal(-4.2f, a.Y);
-            Assert.Equal(3.1f, a.Z);
-            Assert.Equal(1.0f, a.W);
-            Assert.Equal(TupleType.Point, a.Type);
-            Assert.NotEqual(TupleType.Vector, a.Type);
+            Assert.Equal(4.3, a.X);
+            Assert.Equal(-4.2, a.Y);
+            Assert.Equal(3.1, a.Z);
+            Assert.Equal(1, a.W);
+            Assert.True(a.IsPoint);
+            Assert.False(a.IsVector);
+
         }
         [Fact]
         public void TupleWithW0IsAVector()
         {
             //Given
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 0);
+
             //When
 
             //Then
-            Assert.Equal(4.3f, a.X);
-            Assert.Equal(-4.2f, a.Y);
-            Assert.Equal(3.1f, a.Z);
-            Assert.Equal(0.0f, a.W);
-            Assert.NotEqual(TupleType.Point, a.Type);
-            Assert.Equal(TupleType.Vector, a.Type);
+            Assert.Equal(4.3, a.X);
+            Assert.Equal(-4.2, a.Y);
+            Assert.Equal(3.1, a.Z);
+            Assert.Equal(0, a.W);
+            Assert.False(a.IsPoint);
+            Assert.True(a.IsVector);
+
         }
 
         [Fact]
         public void EqualityOperatorReturnsTrueWhenEqual()
         {
-            var a = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
-            var b = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.2, 3.1, 0);
+            var b = new Tuple(4.3, -4.2, 3.1, 0);
+
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -52,8 +57,9 @@ namespace codeclimber.raytracer.xUnit
         [Fact]
         public void EqualityOperatorReturnsFalseWhenNotEqual()
         {
-            var a = new Tuple(4.3f, -4.1f, 3.1f, 0.0f);
-            var b = new Tuple(4.3f, -4.2f, 3.1f, 0.0f);
+            var a = new Tuple(4.3, -4.1, 3.1, 0);
+            var b = new Tuple(4.3, -4.2, 3.1, 0);
+
 
             var ab = a.Equals(b);
             var ba = b.Equals(a);
@@ -80,63 +86,67 @@ namespace codeclimber.raytracer.xUnit
         public void AddingVectorToPointGivesAPoint()
         {
             //Given
-            var p = new Point(3, 2, 1);
-            var v = new Vector(5, 6, 7);
-            var expectedResult = new Point(8, 8, 8);
+            var p = Tuple.Point(3, 2, 1);
+            var v = Tuple.Vector(5, 6, 7);
+            var expectedResult = Tuple.Point(8, 8, 8);
             //When
 
             //Then
             var result = p.Add(v);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.IsPoint);
         }
 
         [Fact]
         public void SubtractingPointsGivesAVector()
         {
             //Given
-            var a1 = new Point(3, 2, 1);
-            var a2 = new Point(5, 6, 7);
-            var expectedResult = new Vector(-2, -4, -6);
+            var a1 = Tuple.Point(3, 2, 1);
+            var a2 = Tuple.Point(5, 6, 7);
+            var expectedResult = Tuple.Vector(-2, -4, -6);
             //When
 
             //Then
             var result = a1.Subtract(a2);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.IsVector);
         }
 
         [Fact]
         public void SubtractingVectorFromPointGivesAPoint()
         {
             //Given
-            var p = new Point(3, 2, 1);
-            var v = new Vector(5, 6, 7);
-            var expectedResult = new Point(-2, -4, -6);
+            var p = Tuple.Point(3, 2, 1);
+            var v = Tuple.Vector(5, 6, 7);
+            var expectedResult = Tuple.Point(-2, -4, -6);
             //When
 
             //Then
             var result = p.Subtract(v);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.IsPoint);
         }
 
         [Fact]
         public void SubtractingTwoVectorsGivesAVector()
         {
             //Given
-            var p = new Vector(3, 2, 1);
-            var v = new Vector(5, 6, 7);
-            var expectedResult = new Vector(-2, -4, -6);
+            var v1 = Tuple.Vector(3, 2, 1);
+            var v2 = Tuple.Vector(5, 6, 7);
+            var expectedResult = Tuple.Vector(-2, -4, -6);
             //When
 
             //Then
-            var result = p.Subtract(v);
+            var result = v1.Subtract(v2);
             Assert.Equal(expectedResult, result);
+            Assert.True(result.IsVector);
         }
 
         [Fact]
         public void ZeroVectorIsTuple0000()
         {
             //Given
-            var zero = Vector.Zero;
+            var zero = Tuple.Zero;
             var zeroTuple = new Tuple(0, 0, 0, 0);
             //When
 
@@ -148,9 +158,9 @@ namespace codeclimber.raytracer.xUnit
         public void SubtractingFromZeroInvertsTheVector()
         {
             //Given
-            var zero = Vector.Zero;
-            var v = new Vector(1, -2, 3);
-            var expectedResult = new Vector(-1, 2, -3);
+            var zero = Tuple.Zero;
+            var v = Tuple.Vector(1, -2, 3);
+            var expectedResult = Tuple.Vector(-1, 2, -3);
             //When
 
             //Then
@@ -216,7 +226,7 @@ namespace codeclimber.raytracer.xUnit
         [InlineData(0, 0, 1, 1)]
         public void CanComputeMagnitudeUnitVector(double x, double y, double z, double magnitude)
         {
-            var value = new Vector(x, y, z);
+            var value = Tuple.Vector(x, y, z);
             Assert.Equal(magnitude, value.Magnitude());
         }
 
@@ -224,7 +234,7 @@ namespace codeclimber.raytracer.xUnit
         public void CanComputeMagnitudeVector123()
         {
             //Given
-            var value = new Vector(1, 2, 3);
+            var value = Tuple.Vector(1, 2, 3);
             var expectedResult = s.Math.Sqrt(14);
             //When
 
@@ -236,7 +246,7 @@ namespace codeclimber.raytracer.xUnit
         public void CanComputeMagnitudeVectorNeg123()
         {
             //Given
-            var value = new Vector(-1, -2, -3);
+            var value = Tuple.Vector(-1, -2, -3);
             var expectedResult = s.Math.Sqrt(14);
             //When
 
@@ -248,8 +258,8 @@ namespace codeclimber.raytracer.xUnit
         public void CanNormalizeUnidimensionalVector()
         {
             //Given
-            var value = new Vector(4, 0, 0);
-            var expectedResult = new Vector(1, 0, 0);
+            var value = Tuple.Vector(4, 0, 0);
+            var expectedResult = Tuple.Vector(1, 0, 0);
             //When
 
             //Then
@@ -260,9 +270,9 @@ namespace codeclimber.raytracer.xUnit
         public void CanNormalize3DVector()
         {
             //Given
-            var value = new Vector(1, 2, 3);
+            var value = Tuple.Vector(1, 2, 3);
             var sq = s.Math.Sqrt(14);
-            var expectedResult = new Vector(1 / sq, 2 / sq, 3 / sq);
+            var expectedResult = Tuple.Vector(1 / sq, 2 / sq, 3 / sq);
             //When
 
             //Then
@@ -273,7 +283,7 @@ namespace codeclimber.raytracer.xUnit
         public void MagnituteOfNormalizedVectorIs1()
         {
             //Given
-            var value = new Vector(1, 2, 3);
+            var value = Tuple.Vector(1, 2, 3);
             //When
             var norm = value.Normalize();
             //Then
@@ -284,8 +294,8 @@ namespace codeclimber.raytracer.xUnit
         public void CanComputeDOTProduct()
         {
             //Given
-            var a = new Vector(1, 2, 3);
-            var b = new Vector(2, 3, 4);
+            var a = Tuple.Vector(1, 2, 3);
+            var b = Tuple.Vector(2, 3, 4);
             //When
 
             //Then
@@ -296,8 +306,8 @@ namespace codeclimber.raytracer.xUnit
         public void IdenticalUnitVectorsHaveDotProductEqualTo1()
         {
             //Given
-            var a = new Vector(1, 0, 0);
-            var b = new Vector(1, 0, 0);
+            var a = Tuple.Vector(1, 0, 0);
+            var b = Tuple.Vector(1, 0, 0);
             //When
 
             //Then
@@ -308,12 +318,25 @@ namespace codeclimber.raytracer.xUnit
         public void OppositelUnitVectorsHaveDotProductEqualTo1()
         {
             //Given
-            var a = new Vector(1, 0, 0);
-            var b = new Vector(-1, 0, 0);
+            var a = Tuple.Vector(1, 0, 0);
+            var b = Tuple.Vector(-1, 0, 0);
             //When
 
             //Then
             Assert.Equal(-1, a.Dot(b));
         }
+
+        [Fact]
+        public void CanWriteToString()
+        {
+        //Given
+            var t = new Tuple(4.3, -4.1, 3.1, 0);
+            var expectedResult = "[4.3, -4.1, 3.1],(0)";
+        //When
+        
+        //Then
+            Assert.Equal(expectedResult,t.ToString());
+        }
+
     }
 }

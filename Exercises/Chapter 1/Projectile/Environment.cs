@@ -3,13 +3,13 @@ namespace Chapter1.Projectile
     using codeclimber.raytracer;
     public class Environment
     {
-        public Environment(Vector gravity, Vector wind)
+        public Environment(Tuple gravity, Tuple wind)
         {
             Gravity = gravity;
             Wind = wind;
         }
 
-        public Vector Gravity { get; set; }
-        public Vector Wind { get; set; }
+        public Tuple Gravity { get; set; }
+        public Tuple Wind { get; set; }
     }
 }

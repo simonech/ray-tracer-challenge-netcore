@@ -355,7 +355,9 @@ The code is that simple that it just prints out the list of coordinates.
 
 To see I got it right, I imported the result in excel and drawn a chart.
 
-On my github repository you can have a look at the code of the exercise, and the output, both text and Excel.
+image
+
+On my github repository you can have a look at the [code of the exercise](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter1-End/Exercises/Chapter%201), and the output, both [text](https://github.com/simonech/ray-tracer-challenge-netcore/blob/Chapter1-End/Exercises/Chapter%201/Results/trajectory.txt) and [Excel](https://github.com/simonech/ray-tracer-challenge-netcore/blob/Chapter1-End/Exercises/Chapter%201/Results/Projectile-trajectory.xlsx).
 
 ## Conclusions
 

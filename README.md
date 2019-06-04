@@ -50,3 +50,4 @@ To look at how the main library and test suite evolved through the book, each ch
  * [Chapter 0.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-0.2) - The basic projects (lib and xUnit test lib) with simple code to make sure testing works fine.
  * [Chapter 1.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.1) - Implemented basic algebra of Tuples, Vectors and Points (Equality, Sum, Subtraction, Negative).
  * [Chapter 1.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.2) - Implemented vector-specific operations, like Normalization, Magnitude, Dot and Cross Product.
+ * [Chapter 1 End](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter1-End) - Refactored previous implementation and implemented working Exercise 1

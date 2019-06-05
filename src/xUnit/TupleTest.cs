@@ -267,6 +267,19 @@ namespace codeclimber.raytracer.xUnit
         }
 
         [Fact]
+        public void CanNormalizeBidimensionalVector()
+        {
+            //Given
+            var value = Tuple.Vector(1, 1, 0);
+            var sq = s.Math.Sqrt(2);
+            var expectedResult = Tuple.Vector(1 / sq, 1 / sq, 0);
+            //When
+
+            //Then
+            Assert.Equal(expectedResult, value.Normalize());
+        }
+
+        [Fact]
         public void CanNormalize3DVector()
         {
             //Given

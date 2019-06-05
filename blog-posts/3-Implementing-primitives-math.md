@@ -305,7 +305,7 @@ class Program
     static void Main(string[] args)
     {
         var p = new Projectile(Tuple.Point(0, 0, 0), Tuple.Vector(1, 1, 0));
-        var e = new Environment(Tuple.Vector(0, -0.1, 0), Tuple.Vector(-0.01, 0, 0));
+        var e = new Environment(Tuple.Vector(0, -0.1, 0), Tuple.Vector(-0.01, 0, 0).Normalize());
         int i = 0;
         while (p.Position.Y >= 0)
         {
@@ -328,34 +328,11 @@ class Program
 
 The code is that simple that it just prints out the list of coordinates.
 
-```
-1 - [0, 0, 0],(1) (v=[1, 1, 0],(0))
-2 - [1, 1, 0],(1) (v=[0.99, 0.9, 0],(0))
-3 - [1.99, 1.9, 0],(1) (v=[0.98, 0.8, 0],(0))
-4 - [2.97, 2.7, 0],(1) (v=[0.97, 0.7, 0],(0))
-5 - [3.94, 3.4, 0],(1) (v=[0.96, 0.6, 0],(0))
-6 - [4.9, 4, 0],(1) (v=[0.95, 0.5, 0],(0))
-7 - [5.85, 4.5, 0],(1) (v=[0.94, 0.4, 0],(0))
-8 - [6.79, 4.9, 0],(1) (v=[0.93, 0.3, 0],(0))
-9 - [7.72, 5.2, 0],(1) (v=[0.92, 0.2, 0],(0))
-10 - [8.64, 5.4, 0],(1) (v=[0.91, 0.1, 0],(0))
-11 - [9.55, 5.5, 0],(1) (v=[0.9, 1.38777878078145E-16, 0],(0))
-12 - [10.45, 5.5, 0],(1) (v=[0.89, -0.0999999999999999, 0],(0))
-13 - [11.34, 5.4, 0],(1) (v=[0.88, -0.2, 0],(0))
-14 - [12.22, 5.2, 0],(1) (v=[0.87, -0.3, 0],(0))
-15 - [13.09, 4.9, 0],(1) (v=[0.86, -0.4, 0],(0))
-16 - [13.95, 4.5, 0],(1) (v=[0.85, -0.5, 0],(0))
-17 - [14.8, 4, 0],(1) (v=[0.84, -0.6, 0],(0))
-18 - [15.64, 3.4, 0],(1) (v=[0.83, -0.7, 0],(0))
-19 - [16.47, 2.7, 0],(1) (v=[0.82, -0.8, 0],(0))
-20 - [17.29, 1.9, 0],(1) (v=[0.81, -0.9, 0],(0))
-21 - [18.1, 1, 0],(1) (v=[0.8, -1, 0],(0))
-22 - [18.9, 2.88657986402541E-15, 0],(1) (v=[0.79, -1.1, 0],(0))
-```
+![Program output](images/3-text-output.png)
 
 To see I got it right, I imported the result in excel and drawn a chart.
 
-image
+![Program output](images/3-ballistic-trajectory.png)
 
 On my github repository you can have a look at the [code of the exercise](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter1-End/Exercises/Chapter%201), and the output, both [text](https://github.com/simonech/ray-tracer-challenge-netcore/blob/Chapter1-End/Exercises/Chapter%201/Results/trajectory.txt) and [Excel](https://github.com/simonech/ray-tracer-challenge-netcore/blob/Chapter1-End/Exercises/Chapter%201/Results/Projectile-trajectory.xlsx).
 

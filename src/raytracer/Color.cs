@@ -1,7 +1,10 @@
 namespace codeclimber.raytracer
 {
+    using System;
     public class Color
     {
+        public static readonly Color Black = new Color(0, 0, 0);
+
         public Color(double r, double g, double b)
         {
             Red = r;
@@ -49,6 +52,16 @@ namespace codeclimber.raytracer
             );
         }
 
+        public string ToRGB()
+        {
+            return $"{Normalize(Red)} {Normalize(Green)} {Normalize(Blue)}";
+        }
+
+        public string[] ToRGBA()
+        {
+            return new string[] {Normalize(Red).ToString(), Normalize(Green).ToString(), Normalize(Blue).ToString()};
+        }
+
         public override bool Equals(object obj)
         {
             Color t = obj as Color;
@@ -62,6 +75,14 @@ namespace codeclimber.raytracer
                     && t.Green.EqualsD(Green)
                     && t.Blue.EqualsD(Blue));
             }
+        }
+
+        private int Normalize(double comp)
+        {
+            if (comp < 0) comp = 0;
+            if (comp > 1) comp = 1;
+
+            return (int)Math.Round(255*comp);
         }
     }
 }

@@ -129,10 +129,10 @@ namespace codeclimber.raytracer
             }
             else
             {
-                return (t.X.Equals(self.X)
-                    && t.Y.Equals(self.Y)
-                    && t.Z.Equals(self.Z)
-                    && t.W.Equals(self.W));
+                return (t.X.EqualsD(self.X)
+                    && t.Y.EqualsD(self.Y)
+                    && t.Z.EqualsD(self.Z)
+                    && t.W.EqualsD(self.W));
             }
         }
     }

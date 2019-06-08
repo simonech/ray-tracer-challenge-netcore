@@ -12,13 +12,7 @@
             var c = new Canvas(900, 550);
             while (p.Position.Y >= 0)
             {
-                var x = (int)sys.Math.Round(p.Position.X);
-                var y = c.Height - (int)sys.Math.Round(p.Position.Y) - 1;
-                //sys.Console.WriteLine($" {x},{y} - {p}");
-                if (x >= 0 && x <= c.Width - 1 && y >= 0 && y <= c.Height - 1)
-                {
-                    c[x, y] = new Color(1, 0, 0);
-                }
+                Draw(c, p.Position);
                 p = Tick(p, e);
             }
             c.Save("file.ppm");
@@ -30,6 +24,17 @@
                 p.Position.Add(p.Velocity),
                 p.Velocity.Add(e.Gravity).Add(e.Wind)
             );
+        }
+
+        private static void Draw(Canvas canvas, Tuple position)
+        {
+            var x = (int)sys.Math.Round(position.X);
+            var y = canvas.Height - (int)sys.Math.Round(position.Y) - 1;
+            //sys.Console.WriteLine($" {x},{y} - {p}");
+            if (x >= 0 && x <= canvas.Width - 1 && y >= 0 && y <= canvas.Height - 1)
+            {
+                canvas[x, y] = new Color(1, 0, 0);
+            }
         }
     }
 }

@@ -51,3 +51,6 @@ To look at how the main library and test suite evolved through the book, each ch
  * [Chapter 1.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.1) - Implemented basic algebra of Tuples, Vectors and Points (Equality, Sum, Subtraction, Negative).
  * [Chapter 1.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-1.2) - Implemented vector-specific operations, like Normalization, Magnitude, Dot and Cross Product.
  * [Chapter 1 End](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter1-End) - Refactored previous implementation and implemented working Exercise 1
+ * [Chapter 2.1](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-2.1) - Implemented Color class and its operations.
+ * [Chapter 2.2](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter-2.2) - Implemented Canvas and serilization of images as PPM file
+ * [Chapter 2 End](https://github.com/simonech/ray-tracer-challenge-netcore/tree/Chapter2-End) - Implemented Exercise 2

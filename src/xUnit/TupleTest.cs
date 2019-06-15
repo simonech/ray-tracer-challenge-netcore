@@ -293,7 +293,7 @@ namespace codeclimber.raytracer.xUnit
         }
 
         [Fact]
-        public void MagnituteOfNormalizedVectorIs1()
+        public void MagnitudeOfNormalizedVectorIs1()
         {
             //Given
             var value = Tuple.Vector(1, 2, 3);
@@ -328,7 +328,7 @@ namespace codeclimber.raytracer.xUnit
         }
 
         [Fact]
-        public void OppositelUnitVectorsHaveDotProductEqualTo1()
+        public void OppositeUnitVectorsHaveDotProductEqualTo1()
         {
             //Given
             var a = Tuple.Vector(1, 0, 0);

@@ -32,7 +32,7 @@ namespace codeclimber.raytracer.xUnit
         }
 
         [Fact]
-        public void CanSubstractColors()
+        public void CanSubtractColors()
         {
             //Given
             var a1 = new Color(0.9, 0.6, 0.75);

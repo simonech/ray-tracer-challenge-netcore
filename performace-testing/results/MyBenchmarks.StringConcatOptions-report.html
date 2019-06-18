@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>MyBenchmarks.StringConcatOptions-20190617-094454</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5, OS=macOS Sierra 10.12.6 (16G2016) [Darwin 16.7.0]
+Intel Core i7-6820HQ CPU 2.70GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=2.2.100
+  [Host]     : .NET Core 2.2.0 (CoreCLR 4.6.27110.04, CoreFX 4.6.27110.04), 64bit RyuJIT
+  DefaultJob : .NET Core 2.2.0 (CoreCLR 4.6.27110.04, CoreFX 4.6.27110.04), 64bit RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>         Method</th><th>N</th><th>S</th><th>         Mean</th><th>        Error</th><th>       StdDev</th><th>       Median</th>
+</tr>
+</thead><tbody><tr><td>StringJoin</td><td>5</td><td>1</td><td>71.73 ns</td><td>1.3241 ns</td><td>1.0338 ns</td><td>71.55 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>1</td><td>156.73 ns</td><td>3.1998 ns</td><td>5.7699 ns</td><td>154.65 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>1</td><td>30.87 ns</td><td>0.5976 ns</td><td>0.5590 ns</td><td>30.94 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>1</td><td>30.66 ns</td><td>0.5269 ns</td><td>0.4928 ns</td><td>30.53 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>1</td><td>141.09 ns</td><td>1.5639 ns</td><td>1.4629 ns</td><td>141.25 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>2</td><td>74.92 ns</td><td>0.8696 ns</td><td>0.8134 ns</td><td>74.93 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>2</td><td>149.19 ns</td><td>0.8621 ns</td><td>0.8064 ns</td><td>149.21 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>2</td><td>32.67 ns</td><td>0.4251 ns</td><td>0.3977 ns</td><td>32.64 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>2</td><td>32.26 ns</td><td>0.5373 ns</td><td>0.5026 ns</td><td>32.36 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>2</td><td>143.67 ns</td><td>1.9135 ns</td><td>1.7899 ns</td><td>143.39 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>4</td><td>75.81 ns</td><td>0.7799 ns</td><td>0.7295 ns</td><td>75.71 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>4</td><td>158.14 ns</td><td>1.5249 ns</td><td>1.3518 ns</td><td>158.49 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>4</td><td>96.53 ns</td><td>0.7265 ns</td><td>0.6440 ns</td><td>96.47 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>4</td><td>99.35 ns</td><td>1.6409 ns</td><td>1.5349 ns</td><td>99.24 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>4</td><td>161.14 ns</td><td>1.7304 ns</td><td>1.6186 ns</td><td>161.08 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>8</td><td>76.79 ns</td><td>0.9147 ns</td><td>0.8556 ns</td><td>76.72 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>8</td><td>175.56 ns</td><td>8.5898 ns</td><td>10.8634 ns</td><td>170.15 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>8</td><td>126.86 ns</td><td>1.7198 ns</td><td>1.6087 ns</td><td>126.42 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>8</td><td>124.89 ns</td><td>1.2703 ns</td><td>1.1261 ns</td><td>124.72 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>8</td><td>169.36 ns</td><td>2.1781 ns</td><td>2.0374 ns</td><td>168.86 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>16</td><td>92.51 ns</td><td>1.9287 ns</td><td>3.7160 ns</td><td>92.40 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>16</td><td>194.20 ns</td><td>3.9630 ns</td><td>5.6836 ns</td><td>193.68 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>16</td><td>164.11 ns</td><td>3.2468 ns</td><td>3.9874 ns</td><td>164.91 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>16</td><td>161.80 ns</td><td>3.2649 ns</td><td>3.6289 ns</td><td>162.10 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>16</td><td>172.96 ns</td><td>3.3998 ns</td><td>4.2997 ns</td><td>173.43 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>32</td><td>95.75 ns</td><td>1.9553 ns</td><td>2.1733 ns</td><td>95.54 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>32</td><td>218.19 ns</td><td>4.4179 ns</td><td>4.5368 ns</td><td>218.10 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>32</td><td>209.04 ns</td><td>4.1775 ns</td><td>4.2900 ns</td><td>210.05 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>32</td><td>207.59 ns</td><td>4.2227 ns</td><td>5.4907 ns</td><td>208.09 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>32</td><td>188.38 ns</td><td>3.6944 ns</td><td>4.5371 ns</td><td>188.98 ns</td>
+</tr><tr><td>StringJoin</td><td>5</td><td>64</td><td>115.05 ns</td><td>2.3606 ns</td><td>3.9441 ns</td><td>116.35 ns</td>
+</tr><tr><td>StringConcat</td><td>5</td><td>64</td><td>282.64 ns</td><td>5.6689 ns</td><td>8.4849 ns</td><td>283.43 ns</td>
+</tr><tr><td>StringBuilder</td><td>5</td><td>64</td><td>238.98 ns</td><td>4.8326 ns</td><td>7.5238 ns</td><td>240.44 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>5</td><td>64</td><td>238.02 ns</td><td>4.8192 ns</td><td>6.7558 ns</td><td>240.21 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>5</td><td>64</td><td>226.21 ns</td><td>4.4577 ns</td><td>6.9401 ns</td><td>226.55 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>1</td><td>133.40 ns</td><td>2.6898 ns</td><td>3.8577 ns</td><td>133.86 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>1</td><td>338.40 ns</td><td>6.8493 ns</td><td>8.6622 ns</td><td>339.91 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>1</td><td>52.09 ns</td><td>0.9812 ns</td><td>0.9178 ns</td><td>52.02 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>1</td><td>51.54 ns</td><td>1.1041 ns</td><td>1.1339 ns</td><td>51.73 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>1</td><td>259.52 ns</td><td>5.2604 ns</td><td>7.8736 ns</td><td>260.76 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>2</td><td>138.01 ns</td><td>2.8296 ns</td><td>3.1451 ns</td><td>138.75 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>2</td><td>339.77 ns</td><td>6.8335 ns</td><td>8.8855 ns</td><td>339.37 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>2</td><td>97.54 ns</td><td>1.7361 ns</td><td>1.6239 ns</td><td>97.83 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>2</td><td>98.28 ns</td><td>2.0197 ns</td><td>2.2449 ns</td><td>98.59 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>2</td><td>264.81 ns</td><td>5.3585 ns</td><td>7.3348 ns</td><td>266.19 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>4</td><td>143.90 ns</td><td>2.8961 ns</td><td>4.6767 ns</td><td>144.36 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>4</td><td>371.60 ns</td><td>6.6049 ns</td><td>5.8551 ns</td><td>373.56 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>4</td><td>196.03 ns</td><td>3.8661 ns</td><td>3.9702 ns</td><td>195.66 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>4</td><td>564.72 ns</td><td>104.4625 ns</td><td>308.0102 ns</td><td>817.93 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>4</td><td>1,226.57 ns</td><td>11.9833 ns</td><td>10.0066 ns</td><td>1,224.89 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>8</td><td>614.38 ns</td><td>4.3381 ns</td><td>4.0579 ns</td><td>613.97 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>8</td><td>1,715.60 ns</td><td>7.8444 ns</td><td>7.3377 ns</td><td>1,715.86 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>8</td><td>996.08 ns</td><td>7.1177 ns</td><td>6.6579 ns</td><td>997.20 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>8</td><td>1,002.23 ns</td><td>4.7078 ns</td><td>4.1734 ns</td><td>1,003.23 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>8</td><td>335.74 ns</td><td>6.4233 ns</td><td>5.6941 ns</td><td>336.69 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>16</td><td>183.02 ns</td><td>5.1678 ns</td><td>13.8829 ns</td><td>182.21 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>16</td><td>460.33 ns</td><td>9.2015 ns</td><td>20.3899 ns</td><td>452.71 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>16</td><td>254.00 ns</td><td>2.9423 ns</td><td>2.7523 ns</td><td>253.56 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>16</td><td>282.89 ns</td><td>13.9533 ns</td><td>13.0519 ns</td><td>278.26 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>16</td><td>296.45 ns</td><td>5.9232 ns</td><td>9.3948 ns</td><td>293.98 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>32</td><td>163.14 ns</td><td>1.3349 ns</td><td>1.0422 ns</td><td>163.50 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>32</td><td>552.78 ns</td><td>12.2850 ns</td><td>34.4484 ns</td><td>540.02 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>32</td><td>299.23 ns</td><td>6.0416 ns</td><td>9.2262 ns</td><td>296.47 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>32</td><td>300.83 ns</td><td>5.8751 ns</td><td>6.5301 ns</td><td>298.37 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>32</td><td>320.88 ns</td><td>5.5966 ns</td><td>5.2351 ns</td><td>320.19 ns</td>
+</tr><tr><td>StringJoin</td><td>10</td><td>64</td><td>213.50 ns</td><td>13.9916 ns</td><td>14.3684 ns</td><td>207.26 ns</td>
+</tr><tr><td>StringConcat</td><td>10</td><td>64</td><td>811.64 ns</td><td>24.5689 ns</td><td>71.6687 ns</td><td>777.45 ns</td>
+</tr><tr><td>StringBuilder</td><td>10</td><td>64</td><td>374.12 ns</td><td>7.5648 ns</td><td>17.2288 ns</td><td>367.58 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10</td><td>64</td><td>366.23 ns</td><td>7.3824 ns</td><td>19.9588 ns</td><td>356.26 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10</td><td>64</td><td>712.90 ns</td><td>16.3742 ns</td><td>48.2797 ns</td><td>707.94 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>1</td><td>1,104.47 ns</td><td>19.5896 ns</td><td>16.3582 ns</td><td>1,100.87 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>1</td><td>4,877.98 ns</td><td>129.0735 ns</td><td>374.4655 ns</td><td>4,766.13 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>1</td><td>552.43 ns</td><td>11.4891 ns</td><td>12.2932 ns</td><td>550.49 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>1</td><td>552.43 ns</td><td>4.3633 ns</td><td>3.8679 ns</td><td>550.76 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>1</td><td>1,879.80 ns</td><td>34.3917 ns</td><td>32.1701 ns</td><td>1,871.53 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>2</td><td>1,116.00 ns</td><td>10.0689 ns</td><td>9.4184 ns</td><td>1,114.05 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>2</td><td>5,342.34 ns</td><td>112.0221 ns</td><td>274.7922 ns</td><td>5,223.91 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>2</td><td>618.65 ns</td><td>6.5833 ns</td><td>5.8359 ns</td><td>617.95 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>2</td><td>631.06 ns</td><td>4.9606 ns</td><td>4.6401 ns</td><td>631.05 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>2</td><td>1,945.01 ns</td><td>28.9222 ns</td><td>25.6387 ns</td><td>1,951.92 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>4</td><td>1,204.95 ns</td><td>17.2867 ns</td><td>16.1700 ns</td><td>1,202.16 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>4</td><td>7,081.04 ns</td><td>216.6401 ns</td><td>631.9494 ns</td><td>6,930.33 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>4</td><td>1,214.58 ns</td><td>9.0171 ns</td><td>8.4346 ns</td><td>1,213.42 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>4</td><td>1,289.03 ns</td><td>6.4619 ns</td><td>5.3960 ns</td><td>1,287.52 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>4</td><td>2,546.54 ns</td><td>37.8424 ns</td><td>35.3978 ns</td><td>2,535.99 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>8</td><td>1,276.95 ns</td><td>24.8909 ns</td><td>31.4791 ns</td><td>1,268.41 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>8</td><td>10,360.64 ns</td><td>452.5358 ns</td><td>1,320.0682 ns</td><td>9,840.62 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>8</td><td>1,352.70 ns</td><td>14.2531 ns</td><td>12.6350 ns</td><td>1,351.06 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>8</td><td>1,386.27 ns</td><td>20.1547 ns</td><td>17.8666 ns</td><td>1,378.18 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>8</td><td>2,719.22 ns</td><td>43.9160 ns</td><td>41.0791 ns</td><td>2,709.93 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>16</td><td>1,371.16 ns</td><td>12.7556 ns</td><td>11.3075 ns</td><td>1,374.88 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>16</td><td>15,246.12 ns</td><td>389.9569 ns</td><td>1,137.5227 ns</td><td>14,756.55 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>16</td><td>1,467.87 ns</td><td>19.6052 ns</td><td>18.3387 ns</td><td>1,471.52 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>16</td><td>1,541.35 ns</td><td>11.3957 ns</td><td>10.1020 ns</td><td>1,539.79 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>16</td><td>3,024.43 ns</td><td>60.1318 ns</td><td>91.8276 ns</td><td>2,989.65 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>32</td><td>1,551.38 ns</td><td>31.0146 ns</td><td>79.5022 ns</td><td>1,512.44 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>32</td><td>24,364.91 ns</td><td>485.5255 ns</td><td>837.5077 ns</td><td>24,173.13 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>32</td><td>1,649.62 ns</td><td>32.5877 ns</td><td>52.6231 ns</td><td>1,639.23 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>32</td><td>1,563.76 ns</td><td>30.7535 ns</td><td>42.0957 ns</td><td>1,550.64 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>32</td><td>3,588.59 ns</td><td>71.8290 ns</td><td>197.8380 ns</td><td>3,519.53 ns</td>
+</tr><tr><td>StringJoin</td><td>100</td><td>64</td><td>2,068.24 ns</td><td>64.1695 ns</td><td>63.0230 ns</td><td>2,068.18 ns</td>
+</tr><tr><td>StringConcat</td><td>100</td><td>64</td><td>43,562.36 ns</td><td>1,004.9455 ns</td><td>1,196.3161 ns</td><td>42,964.72 ns</td>
+</tr><tr><td>StringBuilder</td><td>100</td><td>64</td><td>2,066.42 ns</td><td>33.7610 ns</td><td>34.6700 ns</td><td>2,069.70 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>100</td><td>64</td><td>2,133.68 ns</td><td>54.0659 ns</td><td>84.1741 ns</td><td>2,114.37 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>100</td><td>64</td><td>4,429.66 ns</td><td>62.1017 ns</td><td>55.0515 ns</td><td>4,437.54 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>1</td><td>10,472.05 ns</td><td>114.2950 ns</td><td>106.9116 ns</td><td>10,427.48 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>1</td><td>166,054.11 ns</td><td>5,119.2190 ns</td><td>15,094.1327 ns</td><td>158,594.53 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>1</td><td>3,839.37 ns</td><td>43.6827 ns</td><td>40.8608 ns</td><td>3,847.75 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>1</td><td>4,093.09 ns</td><td>30.5661 ns</td><td>27.0960 ns</td><td>4,087.25 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>1</td><td>18,393.72 ns</td><td>167.4042 ns</td><td>156.5900 ns</td><td>18,399.68 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>2</td><td>10,678.29 ns</td><td>105.8262 ns</td><td>93.8122 ns</td><td>10,640.64 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>2</td><td>222,217.68 ns</td><td>4,390.1643 ns</td><td>10,433.6900 ns</td><td>216,499.28 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>2</td><td>4,492.76 ns</td><td>69.3065 ns</td><td>54.1100 ns</td><td>4,483.22 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>2</td><td>4,879.63 ns</td><td>41.2299 ns</td><td>38.5665 ns</td><td>4,873.47 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>2</td><td>19,355.19 ns</td><td>244.9535 ns</td><td>217.1449 ns</td><td>19,324.22 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>4</td><td>12,157.67 ns</td><td>181.2832 ns</td><td>169.5724 ns</td><td>12,217.68 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>4</td><td>341,845.90 ns</td><td>6,632.3133 ns</td><td>7,895.2972 ns</td><td>337,923.53 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>4</td><td>10,662.48 ns</td><td>143.9000 ns</td><td>127.5636 ns</td><td>10,618.95 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>4</td><td>10,877.79 ns</td><td>100.7154 ns</td><td>89.2816 ns</td><td>10,855.82 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>4</td><td>22,040.66 ns</td><td>373.9071 ns</td><td>349.7530 ns</td><td>22,076.74 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>8</td><td>12,413.23 ns</td><td>155.6313 ns</td><td>145.5776 ns</td><td>12,459.35 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>8</td><td>599,094.33 ns</td><td>11,913.7723 ns</td><td>26,400.0964 ns</td><td>589,859.69 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>8</td><td>11,184.41 ns</td><td>140.8563 ns</td><td>131.7571 ns</td><td>11,133.88 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>8</td><td>11,370.51 ns</td><td>89.3326 ns</td><td>83.5618 ns</td><td>11,359.31 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>8</td><td>23,154.13 ns</td><td>239.8530 ns</td><td>212.6234 ns</td><td>23,206.64 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>16</td><td>13,983.14 ns</td><td>520.3437 ns</td><td>1,534.2451 ns</td><td>13,060.02 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>16</td><td>1,268,573.12 ns</td><td>79,932.6023 ns</td><td>226,755.4884 ns</td><td>1,165,922.78 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>16</td><td>11,975.09 ns</td><td>110.9023 ns</td><td>103.7381 ns</td><td>11,996.20 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>16</td><td>12,749.43 ns</td><td>61.5582 ns</td><td>57.5816 ns</td><td>12,740.51 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>16</td><td>24,837.37 ns</td><td>291.9563 ns</td><td>227.9403 ns</td><td>24,938.78 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>32</td><td>16,639.33 ns</td><td>214.9864 ns</td><td>179.5234 ns</td><td>16,639.37 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>32</td><td>2,468,171.83 ns</td><td>150,040.8448 ns</td><td>405,644.1486 ns</td><td>2,323,010.87 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>32</td><td>13,179.05 ns</td><td>289.8494 ns</td><td>854.6276 ns</td><td>12,690.03 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>32</td><td>13,496.19 ns</td><td>298.7627 ns</td><td>880.9084 ns</td><td>12,984.09 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>32</td><td>29,391.03 ns</td><td>466.9485 ns</td><td>389.9231 ns</td><td>29,153.11 ns</td>
+</tr><tr><td>StringJoin</td><td>1000</td><td>64</td><td>29,790.29 ns</td><td>1,227.6977 ns</td><td>3,502.6905 ns</td><td>27,918.64 ns</td>
+</tr><tr><td>StringConcat</td><td>1000</td><td>64</td><td>7,649,382.03 ns</td><td>567,923.7716 ns</td><td>1,583,144.4757 ns</td><td>6,851,017.23 ns</td>
+</tr><tr><td>StringBuilder</td><td>1000</td><td>64</td><td>18,202.39 ns</td><td>399.5359 ns</td><td>949.5394 ns</td><td>17,876.85 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>1000</td><td>64</td><td>19,315.75 ns</td><td>583.2822 ns</td><td>1,719.8206 ns</td><td>18,326.97 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>1000</td><td>64</td><td>60,069.83 ns</td><td>2,180.2744 ns</td><td>6,428.5882 ns</td><td>56,791.24 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>1</td><td>111,372.49 ns</td><td>1,042.5318 ns</td><td>975.1849 ns</td><td>111,453.96 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>1</td><td>17,033,404.05 ns</td><td>1,866,504.2357 ns</td><td>5,385,291.4886 ns</td><td>14,270,114.69 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>1</td><td>38,034.37 ns</td><td>388.5214 ns</td><td>363.4232 ns</td><td>37,966.94 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>1</td><td>40,743.90 ns</td><td>751.0685 ns</td><td>702.5499 ns</td><td>40,731.42 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>1</td><td>179,554.74 ns</td><td>2,976.1851 ns</td><td>2,783.9254 ns</td><td>180,446.56 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>2</td><td>114,059.48 ns</td><td>2,267.7276 ns</td><td>2,867.9493 ns</td><td>113,315.60 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>2</td><td>22,036,790.29 ns</td><td>1,052,521.5418 ns</td><td>2,845,553.1913 ns</td><td>21,075,818.28 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>2</td><td>43,652.20 ns</td><td>694.9999 ns</td><td>650.1034 ns</td><td>43,923.97 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>2</td><td>48,941.57 ns</td><td>554.8631 ns</td><td>519.0193 ns</td><td>48,931.98 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>2</td><td>188,501.99 ns</td><td>2,794.4000 ns</td><td>2,613.8835 ns</td><td>189,369.02 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>4</td><td>142,884.04 ns</td><td>2,855.9219 ns</td><td>4,771.6040 ns</td><td>141,618.79 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>4</td><td>73,995,705.65 ns</td><td>7,826,984.1844 ns</td><td>23,078,039.4627 ns</td><td>61,381,156.06 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>4</td><td>100,197.02 ns</td><td>764.0041 ns</td><td>714.6499 ns</td><td>99,982.27 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>4</td><td>108,058.97 ns</td><td>1,549.0502 ns</td><td>1,448.9825 ns</td><td>107,544.97 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>4</td><td>245,360.66 ns</td><td>4,015.5202 ns</td><td>3,756.1200 ns</td><td>244,552.54 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>8</td><td>160,215.06 ns</td><td>3,147.2355 ns</td><td>6,357.5710 ns</td><td>158,026.37 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>8</td><td>208,215,082.28 ns</td><td>10,897,947.2983 ns</td><td>30,915,662.5840 ns</td><td>198,139,185.67 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>8</td><td>104,002.96 ns</td><td>743.3915 ns</td><td>658.9972 ns</td><td>104,032.21 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>8</td><td>111,346.07 ns</td><td>814.8664 ns</td><td>722.3579 ns</td><td>111,210.89 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>8</td><td>283,037.26 ns</td><td>4,604.9456 ns</td><td>4,307.4690 ns</td><td>281,183.56 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>16</td><td>184,995.74 ns</td><td>4,025.8925 ns</td><td>5,901.1010 ns</td><td>183,490.71 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>16</td><td>420,718,470.89 ns</td><td>8,549,082.7765 ns</td><td>22,670,954.7422 ns</td><td>410,525,633.50 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>16</td><td>116,872.15 ns</td><td>1,458.6735 ns</td><td>1,364.4441 ns</td><td>116,519.75 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>16</td><td>127,110.11 ns</td><td>1,460.0131 ns</td><td>1,365.6971 ns</td><td>127,154.27 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>16</td><td>366,644.64 ns</td><td>10,402.2323 ns</td><td>10,216.3830 ns</td><td>361,836.93 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>32</td><td>324,231.40 ns</td><td>25,261.1370 ns</td><td>33,722.8923 ns</td><td>306,950.77 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>32</td><td>1,020,125,776.50 ns</td><td>28,694,482.4459 ns</td><td>84,606,328.9059 ns</td><td>1,042,714,338.00 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>32</td><td>141,365.32 ns</td><td>3,791.4369 ns</td><td>8,079.8611 ns</td><td>138,500.44 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>32</td><td>143,456.85 ns</td><td>3,146.4508 ns</td><td>6,062.1425 ns</td><td>140,871.40 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>32</td><td>626,445.23 ns</td><td>14,381.2582 ns</td><td>21,525.1901 ns</td><td>618,074.18 ns</td>
+</tr><tr><td>StringJoin</td><td>10000</td><td>64</td><td>711,823.61 ns</td><td>8,710.2872 ns</td><td>7,721.4427 ns</td><td>710,833.40 ns</td>
+</tr><tr><td>StringConcat</td><td>10000</td><td>64</td><td>2,550,464,262.71 ns</td><td>173,851,846.9017 ns</td><td>512,606,093.0905 ns</td><td>2,746,294,274.00 ns</td>
+</tr><tr><td>StringBuilder</td><td>10000</td><td>64</td><td>251,730.71 ns</td><td>1,907.6594 ns</td><td>1,691.0904 ns</td><td>251,051.84 ns</td>
+</tr><tr><td>StringBuilderOnObject</td><td>10000</td><td>64</td><td>273,453.48 ns</td><td>7,101.4757 ns</td><td>11,667.9283 ns</td><td>268,611.90 ns</td>
+</tr><tr><td>StringJoinOnObjects</td><td>10000</td><td>64</td><td>1,033,521.94 ns</td><td>20,071.7181 ns</td><td>26,795.1672 ns</td><td>1,032,072.69 ns</td>
+</tr></tbody></table>
+</body>
+</html>

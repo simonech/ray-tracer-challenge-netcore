@@ -77,7 +77,7 @@ namespace MyBenchmarks
             return result;
         }
 
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         public string StringBuilder()
         {
             var builder = new StringBuilder();

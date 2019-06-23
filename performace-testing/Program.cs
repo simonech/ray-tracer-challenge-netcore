@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 using BenchmarkDotNet.Attributes;
@@ -9,9 +10,9 @@ namespace MyBenchmarks
 
     public class Foo 
     {
-        public Foo(int num)
+        public Foo(string text)
         {
-            text = StringConcatOptions.BuildTestString(num);
+            this.text = text;
         }
 
         public string text;
@@ -22,6 +23,7 @@ namespace MyBenchmarks
         }
     }
 
+    [RPlotExporter]
     public class StringConcatOptions
     {
         [Params(5, 10, 100, 1000, 10000)]
@@ -31,18 +33,26 @@ namespace MyBenchmarks
         public int S;
 
         private string[] text;
+        private Object[] foosObj;
+
         private Foo[] foos;
+
+        private List<String> stringList;
 
         [GlobalSetup]
         public void Setup()
         {
             text = new string[N];
             foos = new Foo[N];
+            foosObj = new Object[N];
+            stringList = new List<string>(N);
             for (int i = 0; i < N; i++)
             {
-
-                text[i] = BuildTestString(S);
-                foos[i] = new Foo(S);
+                var sample = BuildTestString(S);
+                text[i] = sample;
+                foos[i] = new Foo(sample);
+                foosObj[i] = new Foo(sample);
+                stringList.Add(sample);
             }
         }
 
@@ -55,9 +65,6 @@ namespace MyBenchmarks
             }
             return builder.ToString();
         }
-
-        [Benchmark]
-        public string StringJoin() => String.Join(" ", text);
 
         [Benchmark]
         public string StringConcat()
@@ -89,13 +96,22 @@ namespace MyBenchmarks
             string result = string.Empty;
             for (int i = 0; i < N; i++)
             {
-                builder.Append(foos[i].text);
+                builder.Append(foos[i].ToString());
             }
             return result.ToString();
         }
 
         [Benchmark]
-        public string StringJoinOnObjects() => String.Join<Foo>(" ", foos);
+        public string StringJoin() => String.Join(" ", text);
+
+        [Benchmark]
+        public string StringJoinOnClasses() => String.Join<Foo>(" ", foos);
+
+        [Benchmark]
+        public string StringJoinOnObjects() => String.Join(" ", foosObj);
+
+        [Benchmark]
+        public string StringJoinOnListString() => String.Join(" ", stringList);
     }
 
 
